@@ -13,7 +13,7 @@ Nick = config.get("BotConnectionParams","Nick")
 IdentifyPassword = config.get("BotConnectionParams","IdentifyPassword")
 AdminName = config.get("BotConnectionParams","AdminName")
 ExitMessage = config.get("BotConnectionParams","ExitMessage")
-Debug = True 
+Debug = False 
 DebugChannel = config.get("BotDebugParams","DebugChannel")
 
 print ("Starting " + Nick + " up! I'm firin mah lazah!")
@@ -42,7 +42,7 @@ while True:
 	data = irc.recv (4096)
 	print data
 	
-	if data.find(':!hi') !=-1:
-		t = data.split(':!hi')
+	if data.find(':hi') !=-1:
+		t = data.split(':hi')
 		to = t[1].strip()
 		irc.send('PRIVMSG ' + ConnectChan + ' :' + Nick + ' waves hello' '\r\n')
