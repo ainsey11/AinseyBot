@@ -22,4 +22,8 @@ AdminName - this is your nick, the bot will only respond to administration comma
 
 ExitMessage - This is the message the bot passes when it exits / leaves the channel.
 
+[BotDebugParams]
 
+EnableDebug - Enables Bot Debugging
+
+DebugChannel - Channel to join when in debug mode

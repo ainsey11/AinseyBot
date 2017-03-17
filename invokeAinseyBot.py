@@ -12,6 +12,8 @@ Channel = config.get("BotConnectionParams","Channel")
 Nick = config.get("BotConnectionParams","Nick")
 AdminName = config.get("BotConnectionParams","AdminName")
 ExitMessage = config.get("BotConnectionParams","ExitMessage")
+Debug = config.get("BotDebugParams","EnableDebug")
+DebugChannel = config.get("BotDebugParams","DebugChannel")
 
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 irc.connect((server,port))
