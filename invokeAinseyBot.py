@@ -13,7 +13,7 @@ Nick = config.get("BotConnectionParams","Nick")
 IdentifyPassword = config.get("BotConnectionParams","IdentifyPassword")
 AdminName = config.get("BotConnectionParams","AdminName")
 ExitMessage = config.get("BotConnectionParams","ExitMessage")
-Debug = True #config.get("BotDebugParams","EnableDebug")
+Debug = True 
 DebugChannel = config.get("BotDebugParams","DebugChannel")
 
 print ("Starting " + Nick + " up! I'm firin mah lazah!")
@@ -34,13 +34,15 @@ irc.recv (4096)
 irc.send('USER AinseyBot AinseyBot AinseyBot :AinseyBot IRC\r\n')
 irc.send('NICK ' + Nick + '\r\n')
 time.sleep(2)
-irc.send("PRIVMSG" + " NICKSERV :identify " + password +"\n")
+irc.send("PRIVMSG" + " NICKSERV :identify " + IdentifyPassword +"\n")
 irc.send('JOIN ' + ConnectChan + '\r\n')
-irc.send('PRIVMSG ' + ConnectChan + ' :All rise, the bot has joined the channel\r\n') #Send a Message to the  channel
+irc.send('PRIVMSG ' + ConnectChan + ' :All rise, the bot has joined the channel\r\n')
 
 while True:
 	data = irc.recv (4096)
-	if Debug == True:
-		print data
-	if data.find('PING') != -1:
-		irc.send('PONG ' + data.split()[1] + '\r\n')
+	print data
+	
+	if data.find(':!hi') !=-1:
+		t = data.split(':!hi')
+		to = t[1].strip()
+		irc.send('PRIVMSG ' + ConnectChan + ' :' + Nick + ' waves hello' '\r\n')
