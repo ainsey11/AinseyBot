@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import socket
 import sys
+import time
 from ConfigParser import SafeConfigParser
 
 config = SafeConfigParser()
@@ -30,9 +31,10 @@ elif Debug == False:
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 irc.connect((Server,6667))
 irc.recv (4096)
-irc.send('NICK ' + Nick + '\r\n') 
 irc.send('USER AinseyBot AinseyBot AinseyBot :AinseyBot IRC\r\n')
-irc.send('PRIVMSG Nickserv Identify' + IdentifyPassword ) 
+irc.send('NICK ' + Nick + '\r\n')
+time.sleep(2)
+ircsock.send("PRIVMSG" + " NICKSERV :identify " + password +"\n")
 irc.send('JOIN ' + ConnectChan + '\r\n')
 irc.send('PRIVMSG ' + ConnectChan + ' :All rise, the bot has joined the channel\r\n') #Send a Message to the  channel
 
