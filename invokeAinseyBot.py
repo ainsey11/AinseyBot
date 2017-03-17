@@ -34,7 +34,7 @@ irc.recv (4096)
 irc.send('USER AinseyBot AinseyBot AinseyBot :AinseyBot IRC\r\n')
 irc.send('NICK ' + Nick + '\r\n')
 time.sleep(2)
-ircsock.send("PRIVMSG" + " NICKSERV :identify " + password +"\n")
+irc.send("PRIVMSG" + " NICKSERV :identify " + password +"\n")
 irc.send('JOIN ' + ConnectChan + '\r\n')
 irc.send('PRIVMSG ' + ConnectChan + ' :All rise, the bot has joined the channel\r\n') #Send a Message to the  channel
 
