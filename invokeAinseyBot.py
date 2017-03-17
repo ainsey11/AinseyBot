@@ -19,6 +19,7 @@ elif Debug == False:
    ConnectChan = Channel
 
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+irc.recv (4096)
 irc.connect((Server,6667))
 irc.send("USER" + Nick + Nick + Nick + ":AinseyBot\n")
 irc.send("NICK" + Nick +"\n")
