@@ -1,0 +1,5 @@
+Clone the repo into a suitable directory
+install python
+pip install -r requirements.txt
+edit config/config.ini
+run the invoke script
