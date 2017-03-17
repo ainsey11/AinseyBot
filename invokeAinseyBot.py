@@ -13,16 +13,28 @@ AdminName = config.get("BotConnectionParams","AdminName")
 ExitMessage = config.get("BotConnectionParams","ExitMessage")
 Debug = True #config.get("BotDebugParams","EnableDebug")
 DebugChannel = config.get("BotDebugParams","DebugChannel")
+
+print ("Starting " + Nick + " up! I'm firin mah lazah!")
+
 if Debug == True:
-    ConnectChan = DebugChannel
+	ConnectChan = DebugChannel
+	print "Debug is Enabled, console will be spammed with junk shortly, good luck captain"
+	print ("Connecting to : " + ConnectChan + " for my channel") 
 elif Debug == False:
-   ConnectChan = Channel
+	ConnectChan = Channel
+	print "I see you don't wanna debug, that means I'm stable, woooooo! *pops pills*"
+	print ( "Connecting to : " + ConnectChan + " for my channel")
 
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-irc.recv (4096)
 irc.connect((Server,6667))
-irc.send("USER" + Nick + Nick + Nick + ":AinseyBot\n")
-irc.send("NICK" + Nick +"\n")
-irc.send("JOIN" + ConnectChan +"\n")
-irc.send("PRIVMSG" + ConnectChan + ":Hello! I am a bot! \r\n")
-
+irc.recv (4096)
+irc.send('NICK ' + Nick + '\r\n') #Send our Nick(Notice the Concatenation)
+irc.send('USER AinseyBot AinseyBot AinseyBot :AinseyBot IRC\r\n') #Send User Info to the server
+irc.send('JOIN ' + ConnectChan + '\r\n') # Join the pre defined channel
+irc.send('PRIVMSG ' + ConnectChan + ' :All rise, the bot has joined the channel\r\n') #Send a Message to the  channel
+while True:
+	data = irc.recv (4096)
+	if Debug == True:
+		print data
+	if data.find('PING') != -1:
+		irc.send('PONG ' + data.split()[1] + '\r\n')
