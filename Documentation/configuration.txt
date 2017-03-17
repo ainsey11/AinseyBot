@@ -1,0 +1,22 @@
+The Bot uses configuration files stored in the Ainseybot/Configuration Directory.
+It is written in an INI format as this makes it quite easy to read and edit.
+
+it is split up into sections, the name of each section shouldn't be changed and is wrapped with [ ].
+inside each section, on a line per variable basis, is the configuration itself.
+
+its fairly easy to work out what is what, I haven't put comments in the ini file, so the purpose of each section / variable will be noted in here.
+
+[BotConnectionParams]
+
+This is the main bit that will get changed. It is the home to the details the bot uses to connect into the given irc server.
+
+Server - This is the server IP / Hostname that the bot will connect to
+
+Port - This is the port that the server connects to, default is 6667
+
+Nick - This is the nickname that the bot presents itself as when connecting to the server
+
+AdminName - this is your nick, the bot will only respond to administration commands from this user.
+
+ExitMessage - This is the message the bot passes when it exits / leaves the channel.
+
