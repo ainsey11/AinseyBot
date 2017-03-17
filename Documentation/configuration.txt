@@ -14,9 +14,12 @@ Server - This is the server IP / Hostname that the bot will connect to
 
 Port - This is the port that the server connects to, default is 6667
 
+Channel - The channel your bot should connect to
+
 Nick - This is the nickname that the bot presents itself as when connecting to the server
 
 AdminName - this is your nick, the bot will only respond to administration commands from this user.
 
 ExitMessage - This is the message the bot passes when it exits / leaves the channel.
+
 
