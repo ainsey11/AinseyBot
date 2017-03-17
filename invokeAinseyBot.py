@@ -15,7 +15,7 @@ AdminName = config.get("BotConnectionParams","AdminName")
 ExitMessage = config.get("BotConnectionParams","ExitMessage")
 Debug = False 
 DebugChannel = config.get("BotDebugParams","DebugChannel")
-
+WaveActivator = config.get("BotActivators","WaveActivator")
 print ("Starting " + Nick + " up! I'm firin mah lazah!")
 
 if Debug == True:
@@ -42,7 +42,8 @@ while True:
 	data = irc.recv (4096)
 	print data
 	
-	if data.find(':hi') !=-1:
-		t = data.split(':hi')
+	if data.find(':'+WaveActivator) !=-1:
+		t = data.split(':'+WaveActivator)
 		to = t[1].strip()
 		irc.send('PRIVMSG ' + ConnectChan + ' :' + Nick + ' waves hello' '\r\n')
+	
