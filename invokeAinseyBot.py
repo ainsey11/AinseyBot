@@ -20,8 +20,8 @@ ExitMessage = config.get("BotConnectionParams","ExitMessage")
 Debug = bool(config.get("BotDebugParams","EnableDebug"))
 DebugChannel = config.get("BotDebugParams","DebugChannel")
 WaveActivator = config.get("BotActivators","WaveActivator")
-EnableSelfDefense = bool(config.get("BotActivators","SelfDefense"))
-
+EnableSelfDefense = bool(config.get("BotActivators","EnableSelfDefense"))
+SelfDefenseActivator = config.get("BotActivators","SelfDefenseActivator")
 #Plugins
 EnableURLPlugin = bool(config.get("BotPlugins","EnableURLPlugin"))
 
@@ -58,7 +58,6 @@ while True:
 		irc.send('PONG ' + data.split()[1] + '\r\n') 
 	if data.find(':'+WaveActivator) !=-1:
 		irc.send('PRIVMSG ' + ConnectChan + ' :' + Nick + ' waves hello' '\r\n')
-	if EnableSelfDefense == True:
-		if data.find(': slaps '+ Nick +)
-			irc.send('PRIVMSG '  + ConnectChan + ' : OW, Stop hitting me!')
+	if data.find(':' +SelfDefenseActivator) !=-1:
+		irc.send('PRIVMSG '  + ConnectChan + ' :'+ 'OW, Stop hitting me!')
 	
